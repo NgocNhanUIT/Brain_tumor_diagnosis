@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='script/script.js') }}"></script>
+    <title>Brain Tumor Classification</title>
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          var fileInput = document.getElementById('fileInput');
+          var fileNameDisplay = document.getElementById('fileNameDisplay');
+          var fileNameInput = document.getElementById('fileNameInput');
+          var form = document.getElementById('form');
+    
+          // Restore the file name if it was previously selected
+          if (fileNameInput.value !== '') {
+            fileNameDisplay.textContent = fileNameInput.value;
+          }
+    
+          fileInput.addEventListener('change', function () {
+            updateFileName();
+          });
+    
+          form.addEventListener('submit', function (event) {
+            // Check if a new file has been selected
+            if (fileInput.files.length > 0) {
+              // Update the file name only if a new file has been selected
+              updateFileName();
+            } else {
+              // If no new file is selected, restore the file name from the hidden input
+              fileNameDisplay.textContent = fileNameInput.value || 'No file chosen';
+            }
+          });
+    
+          function updateFileName() {
+            var fileName = fileInput.files[0] ? fileInput.files[0].name : 'No file chosen';
+            fileNameDisplay.textContent = fileName;
+            fileNameInput.value = fileName;
+          }
+        });
+      </script> -->
+</head>
+
+<body>
+    <h1>Brain Tumor Diagnosis</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="fileInput" style="padding: 10px; background-color: #1b2b68; color: white; border: none; border-radius: 5px; cursor: pointer;">Choose a file</label>
+        <span class="file-name" id="fileNameDisplay" style="margin-right: 20px;">{{ filename or 'No file chosen' }}</span>
+        <input type="file" name="file" id="fileInput" accept=".png, .jpg, .jpeg, .gif" style="display: none">
+        <input type="hidden" name="fileName" id="fileNameInput">
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="image-container">
+        {% if filename %}
+        <div class="image">
+            <p>Result: {{ result }}</p>
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+        </div>
+        {% endif %}
+
+        {% if result_image %}
+        <div class="image">
+            <p>Tumor Location</p>
+            <img src="data:image/jpeg;base64,{{ result_image }}" alt="Result Image">
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

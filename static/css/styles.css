@@ -1,0 +1,88 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: url(https://app.scribbr.com/build/images/plagiarism-bg.13654ac9.svg) calc(50% - 175px) -510px no-repeat;
+    background-size: 1800px;
+    margin: 0;
+    padding: 0;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    text-align: center;
+    color: #1b2b68;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+input[type="file"] {
+    padding: 5px 15px;
+}
+
+input #file-upload-button{
+    padding: 10px;
+    color: #1b2b68;
+    font-size: 16px;
+    font-family: Roboto;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+img {
+    width: 350px; 
+    height: 350px;
+    margin-bottom: 20px;
+}
+
+.image {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.image-container {
+    display: flex;
+    margin-top: 20px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+form {
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+button[type="submit"]:hover {
+    background-color: #3e8e41; 
+}
+
+.result-section {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+}
